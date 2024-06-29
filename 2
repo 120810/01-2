@@ -1,0 +1,17 @@
+import pandas as pd
+
+data = {
+    'ID': range(1, 101),
+    'Nome': [f'Filme {i}' for i in range(1, 101)],
+    'Nota': [round(i % 5 + 1, 1) for i in range(1, 101)]
+}
+
+df = pd.DataFrame(data)
+
+filme_id_32 = df[df['ID'] == 32]
+
+if not filme_id_32.empty and filme_id_32['Nota'].values[0] > 3:
+    nome_filme = filme_id_32['Nome'].values[0]
+    print(f"O filme com ID=32 é '{nome_filme}' e é considerado um filme bom.")
+else:
+    print("O filme com ID=32 não foi encontrado ou não é considerado um filme bom.")
